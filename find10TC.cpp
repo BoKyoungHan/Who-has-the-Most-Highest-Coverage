@@ -40,8 +40,7 @@ string cmdGenerator(){
 	return cmd;
 }
 
-
-/* TODO : generate random number */
+/* TODO : fix indexing problem */
 int main()
 {
 	//system("rm grep.gcda");
