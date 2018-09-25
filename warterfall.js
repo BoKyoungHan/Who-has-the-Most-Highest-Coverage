@@ -135,7 +135,7 @@ function cmdGenerator(){
 
 function randomGenerator(list){
 	len = list.length;
-	index = index = Math.floor((Math.random() * len));
+	index = Math.floor((Math.random() * len));
 	return list[index];
 }
 
