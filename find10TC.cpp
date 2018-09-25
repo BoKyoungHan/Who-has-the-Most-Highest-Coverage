@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
@@ -16,20 +16,26 @@ string outputFile = "result_" + targetProgram + ".txt";
 
 
 string randomGenerator(string list[]){
+	
 	int len = sizeof(list)/sizeof(string);
-
-	int index = (rand() * len);
+	int index = (rand() % 3);
 	return list[index];
 }
 
 string cmdGenerator(){
-	string cmd = "./a.out ";
-	cmd += randomGenerator(grepOptionList);
-	cmd += " ";
-	cmd += randomGenerator(patternList);
-	cmd += " ";
-	cmd += targetProgram;
-	cmd += "; ";
+	string cmd = "";
+	
+	srand((unsigned)time(NULL));
+	for(int i=0; i<10; i++){
+		cmd += "./a.out ";
+		cmd += randomGenerator(grepOptionList);
+		cmd += " ";
+		cmd += randomGenerator(patternList);
+		cmd += " ";
+		cmd += targetProgram;
+		cmd += "; ";	
+	}
+	
 
 	return cmd;
 }
@@ -39,10 +45,10 @@ string cmdGenerator(){
 int main()
 {
 	//system("rm grep.gcda");
-	srand( (unsigned)time(NULL) ); 
-	for(int i=0; i<10; i++){
-		cmd += cmdGenerator();
-	}
+	
+	//for(int i=0; i<10; i++){
+		cmd = cmdGenerator();
+	//}
 	
 	cout << cmd << endl;
 	// string filePath = "test.txt";
