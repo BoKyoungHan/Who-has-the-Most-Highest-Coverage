@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
+#include <time.h>
 
 using namespace std;
 
@@ -16,14 +17,16 @@ string outputFile = "result_" + targetProgram + ".txt";
 
 string randomGenerator(string list[]){
 	int len = sizeof(list)/sizeof(string);
+
 	int index = (rand() * len);
 	return list[index];
 }
 
 string cmdGenerator(){
-	cmd = "./a.out ";
-	randomGenerator(grepOptionList);
+	string cmd = "./a.out ";
+	cmd += randomGenerator(grepOptionList);
 	cmd += " ";
+	cmd += randomGenerator(patternList);
 	cmd += " ";
 	cmd += targetProgram;
 	cmd += "; ";
@@ -31,9 +34,17 @@ string cmdGenerator(){
 	return cmd;
 }
 
+
+/* TODO : generate random number */
 int main()
 {
-	system("rm grep.gcda");
+	//system("rm grep.gcda");
+	srand( (unsigned)time(NULL) ); 
+	for(int i=0; i<10; i++){
+		cmd += cmdGenerator();
+	}
+	
+	cout << cmd << endl;
 	// string filePath = "test.txt";
 
 	// // write File

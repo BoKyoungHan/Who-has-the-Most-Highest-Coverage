@@ -10,7 +10,7 @@ var outputFile = 'result_' + targetProgram + '.txt';
 
 fs.writeFileSync(outputFile, '', 'utf8');
 
-for(let i=0; i<10; i++){
+for(let i=0; i<1; i++){
 	exec('rm grep.gcda', function(){
 		var cmd = '';
 		for(let i=0; i<10; i++){
