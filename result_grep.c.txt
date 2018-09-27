@@ -1,30 +1,6 @@
-./a.out -v .* grep.c; ./a.out -P while grep.c; ./a.out -E while grep.c; ./a.out -v ^i grep.c; ./a.out -G .s grep.c; ./a.out -w if grep.c; ./a.out -P ^i grep.c; ./a.out -i [^0-9] grep.c; ./a.out -G if grep.c; ./a.out -F [^0-9] grep.c; 
-gcov -a grep.c
-./a.out -v .* grep.c; ./a.out -P while grep.c; ./a.out -E while grep.c; ./a.out -v ^i grep.c; ./a.out -G .s grep.c; ./a.out -w if grep.c; ./a.out -P ^i grep.c; ./a.out -i [^0-9] grep.c; ./a.out -G if grep.c; ./a.out -F [^0-9] grep.c; ./a.out -w ^i grep.c; ./a.out -x .* grep.c; ./a.out -n .* grep.c; ./a.out -n ^i grep.c; ./a.out -e .* grep.c; ./a.out -F len grep.c; ./a.out -E [^0-9] grep.c; ./a.out -E ^i grep.c; ./a.out -x if grep.c; ./a.out -E ^i grep.c; 
-gcov -a grep.c
-./a.out -v .* grep.c; ./a.out -P while grep.c; ./a.out -E while grep.c; ./a.out -v ^i grep.c; ./a.out -G .s grep.c; ./a.out -w if grep.c; ./a.out -P ^i grep.c; ./a.out -i [^0-9] grep.c; ./a.out -G if grep.c; ./a.out -F [^0-9] grep.c; ./a.out -w ^i grep.c; ./a.out -x .* grep.c; ./a.out -n .* grep.c; ./a.out -n ^i grep.c; ./a.out -e .* grep.c; ./a.out -F len grep.c; ./a.out -E [^0-9] grep.c; ./a.out -E ^i grep.c; ./a.out -x if grep.c; ./a.out -E ^i grep.c; ./a.out -v .s grep.c; ./a.out -v if grep.c; ./a.out -e len grep.c; ./a.out -e len grep.c; ./a.out -i len grep.c; ./a.out -v len grep.c; ./a.out -e len grep.c; ./a.out -i [^0-9] grep.c; ./a.out -e [^0-9] grep.c; ./a.out -P .s grep.c; 
+./a.out -G while grep.c; ./a.out -E while grep.c; ./a.out -x [^0-9] grep.c; ./a.out -F .* grep.c; ./a.out -G while grep.c; ./a.out -E while grep.c; ./a.out -w ^i grep.c; ./a.out -P while grep.c; ./a.out -e .s grep.c; ./a.out -n .* grep.c; 
 gcov -c grep.c
-./a.out -v .* grep.c; ./a.out -P while grep.c; ./a.out -E while grep.c; ./a.out -v ^i grep.c; ./a.out -G .s grep.c; ./a.out -w if grep.c; ./a.out -P ^i grep.c; ./a.out -i [^0-9] grep.c; ./a.out -G if grep.c; ./a.out -F [^0-9] grep.c; ./a.out -w ^i grep.c; ./a.out -x .* grep.c; ./a.out -n .* grep.c; ./a.out -n ^i grep.c; ./a.out -e .* grep.c; ./a.out -F len grep.c; ./a.out -E [^0-9] grep.c; ./a.out -E ^i grep.c; ./a.out -x if grep.c; ./a.out -E ^i grep.c; ./a.out -v .s grep.c; ./a.out -v if grep.c; ./a.out -e len grep.c; ./a.out -e len grep.c; ./a.out -i len grep.c; ./a.out -v len grep.c; ./a.out -e len grep.c; ./a.out -i [^0-9] grep.c; ./a.out -e [^0-9] grep.c; ./a.out -P .s grep.c; ./a.out -F .s grep.c; ./a.out -F len grep.c; ./a.out -P .* grep.c; ./a.out -F len grep.c; ./a.out -G while grep.c; ./a.out -w len grep.c; ./a.out -v ^i grep.c; ./a.out -i .* grep.c; ./a.out -n len grep.c; ./a.out -e len grep.c; File 'grep.c'
-Lines executed:0.00% of 3543
-grep.c:creating 'grep.c.gcov'
-
-
-gcov -a grep.c
 File 'grep.c'
-Lines executed:0.00% of 3543
-grep.c:creating 'grep.c.gcov'
-
-./a.out -v .* grep.c; ./a.out -P while grep.c; ./a.out -E while grep.c; ./a.out -v ^i grep.c; ./a.out -G .s grep.c; ./a.out -w if grep.c; ./a.out -P ^i grep.c; ./a.out -i [^0-9] grep.c; ./a.out -G if grep.c; ./a.out -F [^0-9] grep.c; ./a.out -w ^i grep.c; ./a.out -x .* grep.c; ./a.out -n .* grep.c; ./a.out -n ^i grep.c; ./a.out -e .* grep.c; ./a.out -F len grep.c; ./a.out -E [^0-9] grep.c; ./a.out -E ^i grep.c; ./a.out -x if grep.c; ./a.out -E ^i grep.c; ./a.out -v .s grep.c; ./a.out -v if grep.c; ./a.out -e len grep.c; ./a.out -e len grep.c; ./a.out -i len grep.c; ./a.out -v len grep.c; ./a.out -e len grep.c; ./a.out -i [^0-9] grep.c; ./a.out -e [^0-9] grep.c; ./a.out -P .s grep.c; ./a.out -F .s grep.c; ./a.out -F len grep.c; ./a.out -P .* grep.c; ./a.out -F len grep.c; ./a.out -G while grep.c; ./a.out -w len grep.c; ./a.out -v ^i grep.c; ./a.out -i .* grep.c; ./a.out -n len grep.c; ./a.out -e len grep.c; ./a.out -P len grep.c; ./a.out -w while grep.c; ./a.out -e if grep.c; ./a.out -w if grep.c; ./a.out -v len grep.c; ./a.out -E .* grep.c; ./a.out -G .* grep.c; ./a.out -v if grep.c; ./a.out -P .* grep.c; ./a.out -G [^0-9] grep.c; 
-gcov -a grep.c
-File 'grep.c'
-Lines executed:0.00% of 3543
-grep.c:creating 'grep.c.gcov'
-
-File 'grep.c'
-Lines executed:0.00% of 3543
-grep.c:creating 'grep.c.gcov'
-
-File 'grep.c'
-Lines executed:22.04% of 3543
+Lines executed:38.30% of 3543
 grep.c:creating 'grep.c.gcov'
 

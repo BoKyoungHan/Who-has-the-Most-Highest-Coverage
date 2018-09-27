@@ -10,55 +10,123 @@ var outputFile = 'result_' + targetProgram + '.txt';
 
 fs.writeFileSync(outputFile, '', 'utf8');
 
+var flag = null;
 
-
-// for(let i=0; i<3; i++){
+for(let i=0; i<1; i++){
 var cmd = '';
 var gcovTest = '';
-var tasks = [
-	function(callback){
-		exec('rm grep.gcda');
-		callback(null);
-	},
-	function(callback){
-		//var cmd = '';
-		for(let i=0; i<10; i++){
+// var tasks = [
+// 	function(callback){
+
+
+console.log("i");
+exec('rm grep.gcda', function(err, stdout, stderr){
+	flag = true;
+	console.log("first");
+
+	while(1){
+		if(flag == true){
+			for(let i=0; i<10; i++){
 			cmd += cmdGenerator();
+			}
+			console.log(cmd);
+			writeText(fs, cmd);
+			exec(cmd, function(err, stdout, stderr){
+			gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
+				console.log(gcovTest);
+				writeText(fs, '\n'+gcovTest+'\n');
+				gcovTest += ' >> ' + outputFile;
+				// exec("ls", function(err, stdout, stderr){
+				// 	console.log(stdout[0]);
+				// });
+				exec(gcovTest, function (err, stdout, stderr) {
+	    			console.log("final call");
+				});
+			});
+
+			flag = false;
+			break;
 		}
-		console.log(cmd);
-		writeText(fs, cmd);
-		callback(null);
-	},
-	function(callback){
-		console.log("here");
-		exec(cmd);
-		callback(null);
-	},
-	function(callback){
-		gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
-		console.log(gcovTest);
-		writeText(fs, '\n'+gcovTest+'\n');
-		callback(null);
-	},
-	function(callback){
-		gcovTest += ' >> ' + outputFile;
-		exec(gcovTest, function (err, stdout, stderr) {
-	    if(stdout) console.log(stdout);
-	    if(stderr) console.log('stderr: ' + stderr);	
-	    if (err !== null) {
-	        console.log('error: ' + err);
-	    }
-		});
-		callback(null);
 	}
-];
+});
+
+
+
+
+
+
+/*
+		exec('rm grep.gcda', function(err, stdout, stderr){
+			for(let i=0; i<10; i++){
+				cmd += cmdGenerator();
+			}
+			console.log(cmd);
+			writeText(fs, cmd);
+			exec(cmd, function(err, stdout, stderr){
+				gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
+				console.log(gcovTest);
+				writeText(fs, '\n'+gcovTest+'\n');
+				gcovTest += ' >> ' + outputFile;
+				exec("ls", function(err, stdout, stderr){
+					console.log(stdout[0]);
+				});
+				exec(gcovTest, function (err, stdout, stderr) {
+	    			console.log("final call");
+				});
+			});
+		});
+*/
+		
+
+// }
+// ];
+	// },
+	// function(callback){
+	// 	//var cmd = '';
+	// 	for(let i=0; i<10; i++){
+	// 		cmd += cmdGenerator();
+	// 	}
+	// 	console.log(cmd);
+	// 	writeText(fs, cmd);
+	// 	callback(null);
+	// },
+	// function(callback){
+	// 	//console.log("here");
+	// 	exec(cmd, function (err, stdout, stderr) {
+	//     if(stdout) //console.log(stdout);
+	//     if(stderr) console.log('stderr: ' + stderr);	
+	//     if (err !== null) {
+	//         console.log('error: ' + err);
+	//     }
+	// 	});
+
+	// 	callback(null);
+	// },
+	// function(callback){
+	// 			gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
+	// 	console.log(gcovTest);
+	// 	// gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
+	// 	// console.log(gcovTest);
+	// 	writeText(fs, '\n'+gcovTest+'\n');
+	// 	callback(null);
+	// },
+	// function(callback){
+	// 	gcovTest += ' >> ' + outputFile;
+	// 	exec(gcovTest, function (err, stdout, stderr) {
+	//     if(stdout) //console.log(stdout);
+	//     if(stderr) console.log('stderr: ' + stderr);	
+	//     if (err !== null) {
+	//         console.log('error: ' + err);
+	//     }
+	// 	});
+	// 	callback(null);
+	// }
+
 
 // async.series(tasks, function (err, results){
 // 	//console.log(results);
 // });
-
-//}
-	
+}
 
 
 
@@ -101,9 +169,9 @@ var Fifth_func = function(){
 };
 
 
-for(let i=0; i<5; i++){
-First_func();
-}
+// for(let i=0; i<5; i++){
+// First_func();
+// }
 
 
 function writeText(fs, input){

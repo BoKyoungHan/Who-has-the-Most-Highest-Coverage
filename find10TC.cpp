@@ -14,11 +14,15 @@ string gcovOptionList[] = {"-a", "-b", "-c"};
 string targetProgram = "grep.c";
 string outputFile = "result_" + targetProgram + ".txt";
 
+int lenOfGrepOptionList = sizeof(grepOptionList)/sizeof(string);
+int lenOfPatternList = sizeof(patternList)/sizeof(string);
+int lenOfGcovOptionList = sizeof(gcovOptionList)/sizeof(string);
 
-string randomGenerator(string list[]){
+string randomGenerator(int len, string list[]){
 	
-	int len = sizeof(list)/sizeof(string);
-	int index = (rand() % 3);
+	//int len = sizeof(list)/sizeof(string);
+	//cout << sizeof(list) << endl;
+	int index = (rand() % len);
 	return list[index];
 }
 
@@ -28,9 +32,9 @@ string cmdGenerator(){
 	srand((unsigned)time(NULL));
 	for(int i=0; i<10; i++){
 		cmd += "./a.out ";
-		cmd += randomGenerator(grepOptionList);
+		cmd += randomGenerator(lenOfGrepOptionList, grepOptionList);
 		cmd += " ";
-		cmd += randomGenerator(patternList);
+		cmd += randomGenerator(lenOfPatternList, patternList);
 		cmd += " ";
 		cmd += targetProgram;
 		cmd += "; ";	
@@ -50,6 +54,18 @@ int main()
 	//}
 	
 	cout << cmd << endl;
+
+	//system(cmd);
+	FILE *fp;
+	int state;
+
+	char buff[10000];
+	fp = popen(cmd, "r");
+	if (fp == NULL)
+	{
+	perror("erro : ");
+	exit(0);
+	}
 	// string filePath = "test.txt";
 
 	// // write File
