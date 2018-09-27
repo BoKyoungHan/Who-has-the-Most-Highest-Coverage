@@ -8,17 +8,18 @@ var gcovOptionList = ['-a', '-b', '-c'];
 var targetProgram = 'grep.c';
 var outputFile = 'result_' + targetProgram + '.txt';
 
+
 fs.writeFileSync(outputFile, '', 'utf8');
 
 var flag = null;
-
-for(let i=0; i<1; i++){
 var cmd = '';
 var gcovTest = '';
-// var tasks = [
-// 	function(callback){
 
 
+execution();
+
+
+function execution(){
 console.log("i");
 exec('rm grep.gcda', function(err, stdout, stderr){
 	flag = true;
@@ -45,88 +46,16 @@ exec('rm grep.gcda', function(err, stdout, stderr){
 			});
 
 			flag = false;
-			break;
+			break;			
 		}
 	}
 });
 
-
-
-
-
-
-/*
-		exec('rm grep.gcda', function(err, stdout, stderr){
-			for(let i=0; i<10; i++){
-				cmd += cmdGenerator();
-			}
-			console.log(cmd);
-			writeText(fs, cmd);
-			exec(cmd, function(err, stdout, stderr){
-				gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
-				console.log(gcovTest);
-				writeText(fs, '\n'+gcovTest+'\n');
-				gcovTest += ' >> ' + outputFile;
-				exec("ls", function(err, stdout, stderr){
-					console.log(stdout[0]);
-				});
-				exec(gcovTest, function (err, stdout, stderr) {
-	    			console.log("final call");
-				});
-			});
-		});
-*/
-		
-
-// }
-// ];
-	// },
-	// function(callback){
-	// 	//var cmd = '';
-	// 	for(let i=0; i<10; i++){
-	// 		cmd += cmdGenerator();
-	// 	}
-	// 	console.log(cmd);
-	// 	writeText(fs, cmd);
-	// 	callback(null);
-	// },
-	// function(callback){
-	// 	//console.log("here");
-	// 	exec(cmd, function (err, stdout, stderr) {
-	//     if(stdout) //console.log(stdout);
-	//     if(stderr) console.log('stderr: ' + stderr);	
-	//     if (err !== null) {
-	//         console.log('error: ' + err);
-	//     }
-	// 	});
-
-	// 	callback(null);
-	// },
-	// function(callback){
-	// 			gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
-	// 	console.log(gcovTest);
-	// 	// gcovTest = 'gcov ' + randomGenerator(gcovOptionList) + ' ' + targetProgram;
-	// 	// console.log(gcovTest);
-	// 	writeText(fs, '\n'+gcovTest+'\n');
-	// 	callback(null);
-	// },
-	// function(callback){
-	// 	gcovTest += ' >> ' + outputFile;
-	// 	exec(gcovTest, function (err, stdout, stderr) {
-	//     if(stdout) //console.log(stdout);
-	//     if(stderr) console.log('stderr: ' + stderr);	
-	//     if (err !== null) {
-	//         console.log('error: ' + err);
-	//     }
-	// 	});
-	// 	callback(null);
-	// }
-
-
-// async.series(tasks, function (err, results){
-// 	//console.log(results);
-// });
 }
+
+
+
+
 
 
 
@@ -169,9 +98,7 @@ var Fifth_func = function(){
 };
 
 
-// for(let i=0; i<5; i++){
-// First_func();
-// }
+
 
 
 function writeText(fs, input){
@@ -207,42 +134,3 @@ function randomGenerator(list){
 	return list[index];
 }
 
-function preWork(){
-	var cmd = '';
-	for(let i=0; i<5; i++){
-		cmd += cmdGenerator();
-	}
-	console.log(cmd);
-	writeText(fs, cmd);
-	exec(cmd);
-	
-
-}
-
-function test(){	
-	var cmd = '';
-	for(let i=0; i<10; i++){
-		cmd += cmdGenerator();
-	}
-	
-	writeText(fs, cmd);
-	console.log(cmd);
-	exec(cmd);
-
-	// var cmd = '';
-	// for(let i=0; i<5; i++){
-	// 	cmd += cmdGenerator();
-	// }
-	// console.log(cmd);
-	// writeText(fs, cmd);
-	// exec(cmd);
-
-	// writeText(fs, "check point");
-
-
-	//point
-	var child = require('child_process').fork('child.js');
-	child.on("message", function(){});
-
-
-}
